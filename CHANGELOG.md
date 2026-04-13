@@ -1,5 +1,47 @@
 # Change Log
 
+## [0.5.0](https://github.com/katafrakt/vscode-expert/compare/v0.4.0...v0.5.0) (2026-04-13)
+
+
+### Features
+
+* Add a notification after auto-installing a new version of Lexical ([#81](https://github.com/katafrakt/vscode-expert/issues/81)) ([9d401b9](https://github.com/katafrakt/vscode-expert/commit/9d401b951b2a483d2a3a2120324e040f6b27ccb5))
+* Add a reindex command ([#80](https://github.com/katafrakt/vscode-expert/issues/80)) ([bfb2071](https://github.com/katafrakt/vscode-expert/commit/bfb20714991fd6c9fb3c4584c67c431219eb51fb))
+* Add configuration option to enable LSP tracing ([086ff4b](https://github.com/katafrakt/vscode-expert/commit/086ff4b05a9ecd7036e2d12b23d15ddd5c28e04b))
+* Add configuration option to enable LSP tracing ([848a475](https://github.com/katafrakt/vscode-expert/commit/848a475603d29b04054a88128ddbe1769b820bbf))
+* Adds a Logger module which unifies production and development logging ([#69](https://github.com/katafrakt/vscode-expert/issues/69)) ([3397eac](https://github.com/katafrakt/vscode-expert/commit/3397eacbffffb95a6aeba71240b115d1d423f93b))
+* allow github authentication ([#25](https://github.com/katafrakt/vscode-expert/issues/25)) ([c89ff3a](https://github.com/katafrakt/vscode-expert/commit/c89ff3a8787ff84639923cf119e3eeafb75ce4de))
+* Allow specifying a subdirectory in which to start Lexical ([#66](https://github.com/katafrakt/vscode-expert/issues/66)) ([5f135b1](https://github.com/katafrakt/vscode-expert/commit/5f135b1d7e4a51713aef015ec0888726b37bad8e))
+* Auto install lexical on extension activation ([5a7b1de](https://github.com/katafrakt/vscode-expert/commit/5a7b1de0672dbb964e9bb586f57a98c31e449854))
+* Download and install latest github release ([#12](https://github.com/katafrakt/vscode-expert/issues/12)) ([f313311](https://github.com/katafrakt/vscode-expert/commit/f313311946099ce4d4e073798609545fa05031f5))
+* Fallback to installed version if installation fails ([#56](https://github.com/katafrakt/vscode-expert/issues/56)) ([6dc0d92](https://github.com/katafrakt/vscode-expert/commit/6dc0d92d518f05a51c8e952f1a7219d1341fc700))
+* Make the extenxion's display name more descriptive ([#55](https://github.com/katafrakt/vscode-expert/issues/55)) ([2752bbf](https://github.com/katafrakt/vscode-expert/commit/2752bbfbcc721424c36ada87d6a6cd134a16a3ca))
+* nightly option and automatically upgrade to rc or stable ([#16](https://github.com/katafrakt/vscode-expert/issues/16)) ([e732fdb](https://github.com/katafrakt/vscode-expert/commit/e732fdbbeb5995edab59560df27dd8af98aa81f7))
+* Provide restart command ([#52](https://github.com/katafrakt/vscode-expert/issues/52)) ([9bccc97](https://github.com/katafrakt/vscode-expert/commit/9bccc979a9df59e841dd38eb38b82c38e6c81980))
+* Send EEx and HEEx documents to Lexical ([#33](https://github.com/katafrakt/vscode-expert/issues/33)) ([bc3d465](https://github.com/katafrakt/vscode-expert/commit/bc3d465661f647b53883304b1e0e8ff9dd671b87))
+* support expert's configurations ([#33](https://github.com/katafrakt/vscode-expert/issues/33)) ([7c1d4f9](https://github.com/katafrakt/vscode-expert/commit/7c1d4f94969524e086b3cfa9879dd67dbe67c4e6))
+* support fileLogLevel setting ([#38](https://github.com/katafrakt/vscode-expert/issues/38)) ([f8da18f](https://github.com/katafrakt/vscode-expert/commit/f8da18ffe33d284b7b05cacdbb22fc72cc54bb6f))
+* Support installing semantic versioned release from github ([#27](https://github.com/katafrakt/vscode-expert/issues/27)) ([cc46c00](https://github.com/katafrakt/vscode-expert/commit/cc46c002bc63efd406d7a869c730382e3a6fe074))
+* Support lexical's new packaging structure ([#40](https://github.com/katafrakt/vscode-expert/issues/40)) ([ac651cc](https://github.com/katafrakt/vscode-expert/commit/ac651cc9f48a2958ae4bae2159dfff861650af53))
+* Use ESBuild to bundle extension ([#26](https://github.com/katafrakt/vscode-expert/issues/26)) ([f971c2d](https://github.com/katafrakt/vscode-expert/commit/f971c2d626d6a73c669bc8d011079e8de8b32936))
+
+
+### Bug Fixes
+
+* add logs for request errors ([#23](https://github.com/katafrakt/vscode-expert/issues/23)) ([68606dc](https://github.com/katafrakt/vscode-expert/commit/68606dc68c7394a34b1dbf3c03b54c67f9eacfc4))
+* Change logo in README from svg to png ([#48](https://github.com/katafrakt/vscode-expert/issues/48)) ([58e91b2](https://github.com/katafrakt/vscode-expert/commit/58e91b2e75964e6dbe822ac53aec9f3bfa6dd323))
+* Don't register heex and surface for server ([230c80c](https://github.com/katafrakt/vscode-expert/commit/230c80cb003e870a74b4f40ceb4fe71c8dbcee9e))
+* ensure only the asset for the current platform is used ([#20](https://github.com/katafrakt/vscode-expert/issues/20)) ([761cc57](https://github.com/katafrakt/vscode-expert/commit/761cc5747ece0d747eb02a0101a070b9903d6341)), closes [#21](https://github.com/katafrakt/vscode-expert/issues/21)
+* Fix auto-install failing on a fresh environment ([#8](https://github.com/katafrakt/vscode-expert/issues/8)) ([944573f](https://github.com/katafrakt/vscode-expert/commit/944573f6636008e1033bbc854f160cf88a9693a5))
+* Fix auto-install failing with Lexical &lt;= 0.2.2 ([#41](https://github.com/katafrakt/vscode-expert/issues/41)) ([eb9c322](https://github.com/katafrakt/vscode-expert/commit/eb9c322bc8b454efc57319fa481ce4c556eccaaa))
+* Fix lexi logo link in readme ([e7ecdb2](https://github.com/katafrakt/vscode-expert/commit/e7ecdb28f38f1b57a439a46809012df4c3e43eec))
+* Fixes restart command being unavailable if initial start failed ([#63](https://github.com/katafrakt/vscode-expert/issues/63)) ([dfc10be](https://github.com/katafrakt/vscode-expert/commit/dfc10bee450c8c34a6b99b5572b7c08830347bea))
+* hightlighting breaks after single line doc ([#92](https://github.com/katafrakt/vscode-expert/issues/92)) ([77ed588](https://github.com/katafrakt/vscode-expert/commit/77ed588c2d95ca86bbd18357bcdf6167f0bcc3ee))
+* line comment definition ([#11](https://github.com/katafrakt/vscode-expert/issues/11)) ([6a5060f](https://github.com/katafrakt/vscode-expert/commit/6a5060f49db4e5ac8e1dbe30000c8ac516905ec6))
+* Make @vscode/types version compatible with engine version ([#19](https://github.com/katafrakt/vscode-expert/issues/19)) ([088a300](https://github.com/katafrakt/vscode-expert/commit/088a300048ba931a5de0382f55c76cedfe2a65b7))
+* Make port_wrapper.sh executable during installation ([#16](https://github.com/katafrakt/vscode-expert/issues/16)) ([65b30b9](https://github.com/katafrakt/vscode-expert/commit/65b30b9c5dd3fb498dd2e3f57d32974ae6aa9061))
+* use platform-specific install manifest ([#30](https://github.com/katafrakt/vscode-expert/issues/30)) ([c99969b](https://github.com/katafrakt/vscode-expert/commit/c99969bd22ac514915461e1d8804f7b079c66806))
+
 ## [0.4.0](https://github.com/expert-lsp/vscode-expert/compare/v0.3.1...v0.4.0) (2026-03-05)
 
 
