@@ -6,7 +6,6 @@ import {
 	getFixturePath,
 	type LanguageClient,
 	State,
-	waitForBuildComplete,
 	waitForClientReady,
 	waitForDiagnostics,
 } from "../helpers";
@@ -24,13 +23,6 @@ describe("Extension E2E Tests", () => {
 		assert.strictEqual(client.state, State.Running, "Client should be in Running state");
 	});
 
-	it("should complete project build", async () => {
-		assert.ok(client, "Client should exist from previous test");
-
-		// Wait for the "Building {project}" progress to complete
-		await waitForBuildComplete(client);
-	});
-
 	it("should get diagnostics", async () => {
 		assert.ok(client, "Client should exist from previous test");
 
@@ -39,8 +31,9 @@ describe("Extension E2E Tests", () => {
 		const doc = await vscode.workspace.openTextDocument(fixturePath);
 		await vscode.window.showTextDocument(doc);
 
-		// Wait for diagnostics (should be quick now that build is complete)
-		const diagnostics = await waitForDiagnostics(doc.uri);
+		// Wait for diagnostics — this implicitly waits for the project build
+		// to complete, since the server can't produce diagnostics until then.
+		const diagnostics = await waitForDiagnostics(doc.uri, 120000);
 		assert.ok(diagnostics.length > 0, "Should have received diagnostics");
 
 		// Verify diagnostic content

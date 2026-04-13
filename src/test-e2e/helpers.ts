@@ -43,49 +43,6 @@ export function waitForClientReady(client: LanguageClient, timeoutMs = 30000): P
 	});
 }
 
-interface ProgressValue {
-	kind: "begin" | "report" | "end";
-	title?: string;
-	message?: string;
-	percentage?: number;
-}
-
-interface ProgressParams {
-	token: number | string;
-	value: ProgressValue;
-}
-
-/**
- * Waits for the server to finish building the project.
- * Listens for $/progress notifications with title starting with "Building".
- */
-export function waitForBuildComplete(client: LanguageClient, timeoutMs = 120000): Promise<void> {
-	return new Promise((resolve, reject) => {
-		let buildToken: number | string | undefined;
-
-		const timeout = setTimeout(() => {
-			disposable.dispose();
-			reject(new Error(`Timeout waiting for build to complete (${timeoutMs}ms)`));
-		}, timeoutMs);
-
-		const disposable = client.onNotification("$/progress", (params: ProgressParams) => {
-			const { token, value } = params;
-
-			// Track when a "Building" progress begins
-			if (value.kind === "begin" && value.title?.startsWith("Building")) {
-				buildToken = token;
-			}
-
-			// Resolve when the build progress ends
-			if (value.kind === "end" && token === buildToken) {
-				clearTimeout(timeout);
-				disposable.dispose();
-				resolve();
-			}
-		});
-	});
-}
-
 /**
  * Waits for diagnostics to appear for a given URI.
  */
