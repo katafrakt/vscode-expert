@@ -67,8 +67,24 @@ jobs:
       - name: Install depdendencies
         run: npm ci
 
+      - name: Restore Expert binary cache
+        id: expert-binary-cache
+        uses: actions/cache@v4
+        with:
+          path: .vscode-test/expert_linux_amd64
+          key: expert-linux-amd64-v1
+
+      - name: Download Expert binary
+        if: steps.expert-binary-cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p .vscode-test/expert_linux_amd64
+          curl -fL --retry 3 --retry-delay 2 \
+            https://github.com/elixir-lang/expert/releases/latest/download/expert_linux_amd64 \
+            -o .vscode-test/expert_linux_amd64/expert_linux_amd64
+          chmod +x .vscode-test/expert_linux_amd64/expert_linux_amd64
+
       - name: Run Tests
-        run: xvfb-run -a npm run test:e2e:download
+        run: xvfb-run -a npm run test:e2e
 
   check-format:
     runs-on: ubuntu-latest
